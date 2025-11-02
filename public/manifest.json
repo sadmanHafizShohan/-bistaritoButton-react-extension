@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "React বিস্তারিত Ext",
+  "version": "1.0",
+  "permissions": ["storage", "activeTab", "scripting"],
+  "host_permissions": ["<all_urls>"],
+  "action": {
+    "default_popup": "index.html",
+    "default_title": "বিস্তারিত খুলুন"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ]
+}
