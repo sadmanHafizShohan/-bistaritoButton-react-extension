@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
-  "name": "React বিস্তারিত Ext",
-  "version": "1.0",
+  "name": "All Bistarito Button Opener",
+  "version": "3",
   "permissions": ["storage", "activeTab", "scripting", "notifications"],
   "host_permissions": ["<all_urls>"],
   "action": {
@@ -14,7 +14,7 @@
   "commands": {
     "open_bistaritto": {
       "suggested_key": {
-        "default": "Ctrl+Shift+B"
+        "default": "Ctrl+Shift+H"
       },
       "description": "Open all 'details' buttons"
     }

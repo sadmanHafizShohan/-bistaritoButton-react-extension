@@ -1,118 +1,126 @@
 /* src/App.css */
 
-/* --- General Styles --- */
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: #f4f6f8;
-}
-
-.App {
-  width: 300px;
-  padding: 20px;
-  box-sizing: border-box;
-  text-align: center;
-  color: #333;
-}
-
-/* --- Loader --- */
-.loader {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100px;
-  font-size: 16px;
-  color: #555;
-}
-
-/* --- Login Page Styles --- */
-.login-container h3 {
-  margin-top: 0;
-  margin-bottom: 20px;
-  color: #1a73e8;
-}
-
-.login-container form {
+.auth-container {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+  width: 320px;
 }
 
-.login-container input {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+.auth-card {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.auth-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1c1e21;
+  margin: 0 0 10px;
+}
+
+.main-title {
+  font-size: 22px;
+  font-weight: 500;
+  color: #1c1e21;
+  margin: 0 0 10px;
+}
+
+.auth-subtitle, .main-subtitle {
   font-size: 14px;
+  color: #606770;
+  margin: 0 0 25px;
 }
 
-.login-container input:focus {
+.input-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.input-group label {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  color: #606770;
+  margin-bottom: 5px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #dddfe2;
+  border-radius: 6px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.input-group input:focus {
   outline: none;
-  border-color: #1a73e8;
-  box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.2);
+  border-color: #1877f2;
+  box-shadow: 0 0 0 2px rgba(24, 119, 242, 0.2);
 }
 
-.login-container button {
+.auth-button, .main-action-button, .logout-button {
+  width: 100%;
   padding: 12px;
-  background-color: #1a73e8;
-  color: white;
   border: none;
-  border-radius: 5px;
-  cursor: pointer;
+  border-radius: 6px;
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 700;
+  cursor: pointer;
   transition: background-color 0.2s;
 }
 
-.login-container button:hover {
-  background-color: #185abc;
+.auth-button {
+  background-color: #1877f2;
+  color: white;
+}
+
+.auth-button:hover {
+  background-color: #166fe5;
+}
+
+.main-action-button {
+  background-color: #42b72a;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.main-action-button:hover {
+  background-color: #36a420;
+}
+
+.logout-button {
+  background-color: #f0f2f5;
+  color: #606770;
+}
+
+.logout-button:hover {
+  background-color: #e4e6eb;
 }
 
 .error-message {
-  color: #d93025;
+  color: #fa383e;
   margin-top: 15px;
-  font-size: 14px;
-}
-
-
-/* --- Main Page Styles --- */
-.main-container h3 {
-  margin-top: 0;
-  font-size: 22px;
-  color: #1e8e3e;
-}
-
-.main-container p {
-  color: #5f6368;
-  font-size: 15px;
-  margin-bottom: 25px;
-}
-
-.main-container button {
-  width: 100%;
-  padding: 12px;
-  margin-top: 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
+  font-size: 13px;
   font-weight: 500;
-  border: none;
-  transition: opacity 0.2s;
 }
 
-.main-container button:hover {
-  opacity: 0.9;
+.footer-info {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 11px;
+  color: #8a8d91;
 }
 
-.open-btn {
-  background-color: #28a745;
-  color: white;
-}
-
-.logout-btn {
-  background-color: #dc3545;
-  color: white;
+.footer-info p {
+  margin: 4px 0;
 }

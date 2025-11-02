@@ -30,7 +30,7 @@ function App() {
 
   return (
     <div className="App">
-      {user ? <MainPage /> : <LoginPage />}
+      {user ? <MainPage user={user} /> : <LoginPage />}
     </div>
   );
 }

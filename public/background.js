@@ -38,6 +38,7 @@ async function handleOpenBistarito() {
 
 // Listener for keyboard shortcuts
 chrome.commands.onCommand.addListener(async (command) => {
+  console.log('Command received:', command);
   if (command === 'open_bistaritto') {
     await handleOpenBistarito();
   }
