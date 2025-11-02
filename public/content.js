@@ -3,7 +3,7 @@
 (function () {
   'use strict';
 
-  // একটি উপাদান দৃশ্যমান কিনা তা পরীক্ষা করার ফাংশন
+  // Function to check if an element is visible
   function isVisible(el) {
     if (!el) return false;
     const style = window.getComputedStyle(el);
@@ -14,23 +14,27 @@
     );
   }
 
-  // অপেক্ষা করার ফাংশন
+  // Function to wait for a specific time
   function wait(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
   }
 
-  // মূল ফাংশন
+  // Main function to find and open all "details" buttons
   async function openAllDetails() {
-    console.log('[Bistarito Ext] বিস্তারিত বাটন খোঁজা হচ্ছে...');
+    console.log("[Bistarito Ext] Searching for 'bistarito' buttons...");
 
+    // This selector is very specific and might break if the website changes.
+    // For future improvement, this could be a user-configurable setting.
     const spans = Array.from(document.querySelectorAll('span.text-white.text-13'))
       .filter(el => el.textContent.trim() === 'বিস্তারিত' && isVisible(el));
 
     if (spans.length === 0) {
+      // UX improvement: Instead of an alert, a more subtle notification could be shown.
       alert('❌ কোনো দৃশ্যমান "বিস্তারিত" বাটন খুঁজে পাওয়া যায়নি।');
       return;
     }
 
+    // UX improvement: Instead of a confirm, a custom modal could be used.
     const confirmOpen = confirm(`✅ ${spans.length} টি দৃশ্যমান "বিস্তারিত" বাটন পাওয়া গেছে। সবগুলো নতুন ট্যাবে খুলতে চান?`);
     if (!confirmOpen) {
       return;
@@ -46,7 +50,7 @@
             const newTab = window.open(clickableParent.href, '_blank');
             if (!newTab) {
               alert('⚠️ আপনার ব্রাউজারের Popup Blocker নতুন ট্যাব খুলতে বাধা দিচ্ছে। অনুগ্রহ করে এই সাইটের জন্য Popup Allow করে আবার চেষ্টা করুন।');
-              return;
+              return; // Stop if popup blocker is active
             }
             openedCount++;
           } else {
@@ -54,12 +58,15 @@
             openedCount++;
           }
         } else {
+          // Fallback to clicking the span itself
           span.click();
           openedCount++;
         }
-        await wait(500); // প্রতিটি ক্লিকের মাঝে বিরতি
+        // This fixed delay is not very reliable. A better approach would be to
+        // wait for a specific event or element on the new page.
+        await wait(500); // Pause between each click
       } catch (error) {
-        console.error('[Bistarito Ext] একটি "বিস্তারিত" বাটন খুলতে সমস্যা হয়েছে:', error);
+        console.error('[Bistarito Ext] Error opening a "details" button:', error);
       }
     }
 
@@ -68,7 +75,6 @@
     }
   }
 
-  // যেহেতু content.js শুধুমাত্র বাটন ক্লিকের মাধ্যমে ইনজেক্ট হচ্ছে,
-  // তাই MutationObserver এর প্রয়োজন নেই। সরাসরি ফাংশনটি চালানো হবে।
+  // The script is injected on demand, so we can run the function directly.
   openAllDetails();
 })();
